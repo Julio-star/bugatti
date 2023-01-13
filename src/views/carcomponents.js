@@ -6,10 +6,10 @@ import { Container, Top, Header, IconNav, Section } from '../globalStyles';
 
 const Components = () => {
 
-  let component = new Object();
-  let pattern='motor_piece/';
+  let component = new {}();
+  //let pattern='motor_piece/';
 
-  function _contentSelector() {
+  /*function _contentSelector() {
     switch (SideBar.this.state) {
       case SideBar.this.state.firstParams:
         component.title='Le Moteur';
@@ -39,7 +39,7 @@ const Components = () => {
       default:
         console.log(`Sorry, we are out of components.`);
     }
-  }
+  }*/
 
 
   return (

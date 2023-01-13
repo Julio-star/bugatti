@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Container, Top, Header, IconNav, Section, Bottom} from '../../globalStyles';
+import {Container, Top, Section, Bottom} from '../../globalStyles';
 
 import './login.css';
 
@@ -24,7 +24,7 @@ const Login = () => {
         var { uname, pass } = document.forms[0];
     
         // Find user login info
-        const userData = ''; //GET request to the REST API, trying to find the current user by his name.
+        const userData = uname; //GET request to the REST API, trying to find the current user by his name.
     
         // Compare user info
         if (userData) {

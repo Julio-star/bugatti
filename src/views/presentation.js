@@ -1,7 +1,6 @@
 import React from "react";
 import BurgerMenu from '../core/components/burger-menu/burgerMenu';
 import ContentBox from '../core/components/content-box/content-box';
-import VerticalLine from '../core/components/vertical-line/vertical-line';
 import {Container, Top, Header, Section, IconNav} from '../globalStyles';
 
 const Presentation = () => {

@@ -22,18 +22,10 @@ const Presentation = () => {
           path='design/car-sketch.jpeg'
         />
         <br/><br/>
-        <VerticalLine
-        date='1980'
-        />
-        <br/><br/>
         <ContentBox
           title='Conception'
           text="La conception de la Bugatti Chiron a nécessité des années de recherche et d'étude, aussi bien sur le plan mécanique, aéronautique, pneumatique qu'auditif."
           path='design/car-sketch.jpeg'
-        />
-        <br/>
-        <VerticalLine
-        date='1980'
         />
         <br/>
         <ContentBox
@@ -42,28 +34,16 @@ const Presentation = () => {
           path='design/car-sketch.jpeg'
         />
         <br/>
-        <VerticalLine
-        date='1980'
-        />
-        <br/>
         <ContentBox
           title='Conception'
           text="La conception de la Bugatti Chiron a nécessité des années de recherche et d'étude, aussi bien sur le plan mécanique, aéronautique, pneumatique qu'auditif."
           path='design/car-sketch.jpeg'
         />
         <br/>
-        <VerticalLine
-        date='1980'
-        />
-        <br/>
         <ContentBox
           title='Conception'
           text="La conception de la Bugatti Chiron a nécessité des années de recherche et d'étude, aussi bien sur le plan mécanique, aéronautique, pneumatique qu'auditif."
           path='design/car-sketch.jpeg'
-        />
-        <br/>
-        <VerticalLine
-        date='1980'
         />
         <br/>
         <ContentBox

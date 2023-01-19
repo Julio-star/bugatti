@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { Container, Top, Section, Bottom } from '../../globalStyles';
 
-import './login.css';
+import './userUpdate.css';
 
-const Login = () => {
+const UserUpdate = () => {
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -25,7 +25,7 @@ const Login = () => {
     //Prevent page reload
     event.preventDefault();
 
-    // Post user login info
+    // Find user login info
     const token = _Connection();
 
     //console.log(window.sessionStorage.getItem('userToken'));
@@ -50,8 +50,7 @@ const Login = () => {
       },
     })
       .then((response) => response.json())
-      .then((data) => { window.sessionStorage.setItem('userToken', data.token); 
-      window.sessionStorage.setItem('userID', data.user.id) });
+      .then((data) => window.sessionStorage.setItem('userToken', data.token));
 
     window.location.replace("/home");
   }
@@ -67,7 +66,7 @@ const Login = () => {
         </div>
         <div className="input-container">
           <label>Mot de passe </label>
-          <input type="password" name="pass" required onChange={(e) => setPassword(e.target.value)} />
+          <input type="password" name="pass" required onChange={(e) =>setPassword(e.target.value)}/>
           {renderErrorMessage("pass")}
         </div>
         <div className="button-container">
@@ -82,17 +81,17 @@ const Login = () => {
       <Top>
       </Top>
       <Section>
-        <div className="login-form">
+        <div className="Account-form">
           <div className="title">Connexion</div>
           {isSubmitted ? <div>Vous êtes connecté</div> : renderForm}
         </div>
         <button type="button"><Link to="/signup">Pas encore de compte ? Inscrivez vous.</Link></button>
       </Section>
       <Bottom>
-
+        
       </Bottom>
     </Container>
   );
 };
 
-export default Login;
+export default UserUpdate;

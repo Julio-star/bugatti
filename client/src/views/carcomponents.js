@@ -6,7 +6,7 @@ import { Container, Top, Header, IconNav, Section } from '../globalStyles';
 
 const Components = () => {
 
-  let component = new {}();
+  //let component = new {}();
   //let pattern='motor_piece/';
 
   /*function _contentSelector() {
@@ -62,9 +62,9 @@ const Components = () => {
       />
       <Section>
         <ContentBox
-          title={component.title}
-          text={component.description}
-          path={component.image}
+          title=''
+          text=''
+          path=''
         />
       </Section>
     </Container>

@@ -2,7 +2,7 @@ import {React, useState} from "react";
 import { Link} from "react-router-dom";
 import { Menu, Burger } from '@mantine/core';
 import './burgerMenu.css';
-import { IconHomeMove, IconSettings, IconPresentation, IconHistory, IconAward } from '@tabler/icons';
+import { IconHomeMove, IconSettings, IconPresentation, IconHistory, IconAward, IconUser } from '@tabler/icons';
 
 const BurgerMenu = () => {
 
@@ -31,6 +31,7 @@ const BurgerMenu = () => {
           <Menu.Item icon={<IconSettings size={14} />}><Link to="/carcomponents">Vers Page Car Components</Link></Menu.Item>
           <Menu.Item icon={<IconHistory size={14} />}><Link to="/history">Vers Page History</Link></Menu.Item>
           <Menu.Item icon={<IconAward size={14} />}><Link to="/records">Vers Page Records</Link></Menu.Item>
+          <Menu.Item icon={<IconUser size={14} />}><Link to="/account">Vers Page Account</Link></Menu.Item>
       
         </Menu.Dropdown>
       </Menu>

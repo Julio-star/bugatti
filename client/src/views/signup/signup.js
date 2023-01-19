@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { Container, Top, Section, Bottom } from '../../globalStyles';
 
-import './login.css';
+import './signup.css';
 
-const Login = () => {
+const Signup = () => {
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -25,12 +25,11 @@ const Login = () => {
     //Prevent page reload
     event.preventDefault();
 
-    // Post user login info
-    const token = _Connection();
+    // Post user signup info
+    const token = _Inscription();
 
     //console.log(window.sessionStorage.getItem('userToken'));
 
-    // Compare user info
     if (token == null) {
       setErrorMessages({ name: "pass", message: errors.pass });
     } else {
@@ -38,9 +37,9 @@ const Login = () => {
     }
   };
 
-  function _Connection() {
+  function _Inscription() {
     const credentials = { email, password };
-    fetch("http://localhost:3001/api/auth/login/", {
+    fetch("http://localhost:3001/api/auth/signup/", {
       method: "POST",
       body: JSON.stringify(credentials),
 
@@ -50,13 +49,11 @@ const Login = () => {
       },
     })
       .then((response) => response.json())
-      .then((data) => { window.sessionStorage.setItem('userToken', data.token); 
-      window.sessionStorage.setItem('userID', data.user.id) });
+      .then((data) => window.sessionStorage.setItem('userToken', data.token));
 
-    window.location.replace("/home");
   }
 
-  // JSX code for login form
+  // JSX code for signup form
   const renderForm = (
     <div className="form">
       <form onSubmit={handleSubmit}>
@@ -67,7 +64,7 @@ const Login = () => {
         </div>
         <div className="input-container">
           <label>Mot de passe </label>
-          <input type="password" name="pass" required onChange={(e) => setPassword(e.target.value)} />
+          <input type="password" name="pass" required onChange={(e) =>setPassword(e.target.value)}/>
           {renderErrorMessage("pass")}
         </div>
         <div className="button-container">
@@ -82,17 +79,17 @@ const Login = () => {
       <Top>
       </Top>
       <Section>
-        <div className="login-form">
-          <div className="title">Connexion</div>
-          {isSubmitted ? <div>Vous êtes connecté</div> : renderForm}
+        <div className="signup-form">
+          <div className="title">Inscription</div>
+          {isSubmitted ? <div>Vous êtes inscrit</div> : renderForm}
         </div>
-        <button type="button"><Link to="/signup">Pas encore de compte ? Inscrivez vous.</Link></button>
+        <button><Link to="/">Déja un compte ? Connectez vous.</Link></button>
       </Section>
       <Bottom>
-
+        
       </Bottom>
     </Container>
   );
 };
 
-export default Login;
+export default Signup;

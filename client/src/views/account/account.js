@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import BurgerMenu from "../../core/components/burger-menu/burgerMenu";
-import { Container, Top, Section, Bottom } from '../../globalStyles';
+//import UserList from "../../core/components/userList/user-list";
+import { Container, Top, Section, Bottom , Header, IconNav} from '../../globalStyles';
 
 import './account.css';
 
 const Account = () => {
-  const [errorMessages, setErrorMessages] = useState({});
+  const [isItWorking, setIsItWorking] = useState(true);
 
   const deleting = (event) => {
     //Prevent page reload
@@ -17,15 +18,14 @@ const Account = () => {
     //console.log(window.sessionStorage.getItem('userToken'));
 
     if (token == null) {
-      setErrorMessages({ name: "", message: '' });
+      setIsItWorking(false);
     }
   };
 
   function _UserDeletion() {
-    const credentials = window.sessionStorage.getItem('userID');
-    fetch("http://localhost:3001/api/auth/:id", {
+    const userID = window.sessionStorage.getItem('userID');
+    fetch("http://localhost:3001/api/auth/"+userID, {
       method: "DELETE",
-      body: JSON.stringify(credentials),
 
       headers: {
         Accept: "application/json",
@@ -40,14 +40,21 @@ const Account = () => {
   return (
     <Container>
       <Top>
-        <BurgerMenu/>
+        <Header>
+          <h1>Page account</h1>
+        </Header>
+        <IconNav>
+          <BurgerMenu></BurgerMenu>
+        </IconNav>
       </Top>
       <Section>
+        
         <button onClick={deleting}> Voulez-vous supprimer votre compte ?</button>
         <button type="button"><Link to="/signup">Voulez-vous mettre à jour votre compte ?</Link></button>
+        {isItWorking === false ? <p>ERROR</p> : null}
       </Section>
       <Bottom>
-        
+
       </Bottom>
     </Container>
   );

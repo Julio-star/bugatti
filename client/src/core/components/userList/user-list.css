@@ -1,0 +1,45 @@
+/* ContentBox */
+
+.rectangle {
+    display: inline-block;
+    padding: 20px 40px 40px;
+    margin: 0 auto;
+    max-width: 950px;
+    height: 440px;
+    border-radius: 40px;
+    background: white;
+    align-items: center;
+  }
+
+  .rectangle h1, p {
+    display: inline;
+    color: black;
+  }
+
+ 
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+
+    .rectangle {
+      display: inline-block;
+      padding: 20px 40px 40px;
+      margin: 0 auto;
+      max-width: 87%;
+      height: 350px;
+      border-radius: 40px;
+      background: white;
+    }
+
+    .rectangle h1, p {
+      display: inline;
+      color: black;
+    }
+
+    .rectangle h1 {
+      font-size: 10-smaller;
+    }
+
+    .rectangle p {
+      font-size: 10;
+    }
+  }

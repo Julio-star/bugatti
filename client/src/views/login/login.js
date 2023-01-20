@@ -50,8 +50,8 @@ const Login = () => {
       },
     })
       .then((response) => response.json())
-      .then((data) => { window.sessionStorage.setItem('userToken', data.token); 
-      window.sessionStorage.setItem('userID', data.user.id) });
+      .then((data) => { window.sessionStorage.setItem('userToken', data.token)
+      window.sessionStorage.setItem('userID', data.user._id) });
 
     window.location.replace("/home");
   }

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link} from "react-router-dom";
 import { Container, Top, Section, Bottom } from '../../globalStyles';
 
 import './userUpdate.css';
@@ -26,7 +25,7 @@ const UserUpdate = () => {
     event.preventDefault();
 
     // Find user login info
-    const token = _Connection();
+    const token = _Update();
 
     //console.log(window.sessionStorage.getItem('userToken'));
 
@@ -38,10 +37,11 @@ const UserUpdate = () => {
     }
   };
 
-  function _Connection() {
+  function _Update() {
+    const userID = window.sessionStorage.getItem('userID');
     const credentials = { email, password };
-    fetch("http://localhost:3001/api/auth/login/", {
-      method: "POST",
+    fetch("http://localhost:3001/api/auth/"+userID, {
+      method: "PUT",
       body: JSON.stringify(credentials),
 
       headers: {
@@ -49,8 +49,7 @@ const UserUpdate = () => {
         "Content-Type": "application/json",
       },
     })
-      .then((response) => response.json())
-      .then((data) => window.sessionStorage.setItem('userToken', data.token));
+      .then((response) => response.json());
 
     window.location.replace("/home");
   }
@@ -60,12 +59,12 @@ const UserUpdate = () => {
     <div className="form">
       <form onSubmit={handleSubmit}>
         <div className="input-container">
-          <label>Adresse Email </label>
+          <label>Nouvelle Adresse Email </label>
           <input type="email" name="uname" required onChange={(e) => setEmail(e.target.value)} />
           {renderErrorMessage("uname")}
         </div>
         <div className="input-container">
-          <label>Mot de passe </label>
+          <label>Nouveau Mot de passe </label>
           <input type="password" name="pass" required onChange={(e) =>setPassword(e.target.value)}/>
           {renderErrorMessage("pass")}
         </div>
@@ -82,10 +81,9 @@ const UserUpdate = () => {
       </Top>
       <Section>
         <div className="Account-form">
-          <div className="title">Connexion</div>
-          {isSubmitted ? <div>Vous êtes connecté</div> : renderForm}
+          <div className="title">Mise à jour du compte</div>
+          {isSubmitted ? <div>Vous avez mis à jour votre compte avec succès</div> : renderForm}
         </div>
-        <button type="button"><Link to="/signup">Pas encore de compte ? Inscrivez vous.</Link></button>
       </Section>
       <Bottom>
         
